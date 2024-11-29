@@ -52,6 +52,8 @@ const formData = ref({
 
 // TODO: Implement proper validation
 const handleSubmit = async () => {
+  // The form submission logic is complex and prone to errors.
+  // Consider using a more clear validations or breaking down the logics into smaller parts.
   try {
     // Basic submission without validation
     await appointmentService.createAppointment(formData.value)

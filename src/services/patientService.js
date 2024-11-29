@@ -87,6 +87,9 @@ const mockPatients = [
 // Simulate API delay
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
+
+// This function is not modulated and has too many work to do.
+// Break it down into smaller functions, each with a single responsibility.
 export const patientService = {
   // TODO: Implement caching layer
   async getPatients() {
@@ -97,7 +100,9 @@ export const patientService = {
   async getPatientById(id) {
     await delay(500)
     const patient = mockPatients.find((p) => p.id === parseInt(id))
+    // Implement proper error handling for API requests like - Patient Not Found Check the name or email
     if (!patient) {
+      // Implement more detailed error messages for failed requests - Like Patient Not Found Check the name or email
       throw new Error('Patient not found')
     }
     return { data: patient }

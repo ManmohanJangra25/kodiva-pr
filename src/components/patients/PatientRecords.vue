@@ -1,6 +1,8 @@
 <template>
   <div>
+
     <!-- TODO: Improve semantic structure and accessibility -->
+     <!-- Add Tags like "Patient Records in the for attribute of the respective input elements for a clear approach" -->
     <div class="patient-records">
       <div class="header">
         <h1>Patient Records</h1>
@@ -42,8 +44,10 @@ const searchQuery = ref('')
 // TODO: Implement caching and lazy loading
 onMounted(async () => {
   try {
+    // First We Need To Add loading state for patient record data like loading spinner
     patients.value = await fetchPatients()
   } catch (error) {
+    // We Need To Add error handling for failed API requests like - Patient Not Found Check the name or email
     console.error('Failed to fetch patients:', error)
   }
 })

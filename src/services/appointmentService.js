@@ -1,3 +1,6 @@
+// Consider breaking down this large function into smaller, more manageable pieces.
+// This will improve readability and make it easier to test individual components.
+
 import { api } from './api'
 
 // Mock appointment data
@@ -97,8 +100,12 @@ export const appointmentService = {
   async createAppointment(data) {
     await delay(500)
 
+    // Need to be done - Implement correct error handling for API requests like - Patient Not Found Check the name or email
+
     // Validate appointment data
     if (!data.patientName || !data.time) {
+      
+    // Need to be done - Add more elaborated error messages for failed requests
       throw new Error('Invalid appointment data')
     }
 
@@ -107,6 +114,7 @@ export const appointmentService = {
       (apt) => apt.date === data.date && apt.time === data.time
     )
     if (existingAppointment) {
+      // Add error messages like - Time slot already booked please choose another time
       throw new Error('Time slot already booked')
     }
 
